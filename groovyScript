@@ -5,19 +5,19 @@ pipeline {
         stage('Cloning') {
             steps {
                 echo 'cloning the code from git'
-				git branch: 'main', url: 'https://github.com/PogakuRavi/mindcircuit15d.git'
+		git branch: 'main', url: 'https://github.com/PogakuRavi/mindcircuit15d.git'
             }
         }
-		stage('Build Artifact') {
+	stage('Build Artifact') {
             steps {
                 echo 'Building the artifact'
-				sh 'mvn clean install'
+		sh 'mvn clean install'
             }
         }
-		stage('Deploy') {
+	stage('Deploy') {
             steps {
-                echo 'Deploying the artifact eo tomcat'
-				deploy adapters: [tomcat9(credentialsId: 'tomcatID', path: '', url: 'http://54.205.208.201:8080/')], contextPath: 'Ravi-TestPath', war: '**/*.war'
+		echo 'Deploying the artifact eo tomcat'
+		deploy adapters: [tomcat9(credentialsId: 'tomcatID', path: '', url: 'http://54.205.208.201:8080/')], contextPath: 'Ravi-TestPath', war: '**/*.war'
             }
         }
     }
