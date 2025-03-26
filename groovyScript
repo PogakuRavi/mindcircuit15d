@@ -17,7 +17,7 @@ pipeline {
 	stage('Deploy') {
             steps {
 		echo 'Deploying the artifact eo tomcat'
-		deploy adapters: [tomcat9(credentialsId: 'tomcatID', path: '', url: 'http://54.205.208.201:8080/')], contextPath: 'Ravi-TestPath', war: '**/*.war'
+		deploy adapters: [tomcat9(credentialsId: 'tomcatID', path: '', url: 'http://54.166.106.153:8090/')], contextPath: 'Ravi-TestPath', war: '**/*.war'
             }
         }
     }
